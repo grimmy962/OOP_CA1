@@ -25,7 +25,7 @@ public class Main {
           countPassengersByGender(passengerList);
           sumFares(passengerList);
           maleSurvivors(passengerList);
-//        ticketOwner();
+          ticketOwner(passengerList, "2680");
 //        averageAge();
 //        getPassengersByTicketClass();
 //        sortPassengersByPassengerId()
@@ -167,6 +167,21 @@ public class Main {
             if(passenger.getGender().equalsIgnoreCase("male") && passenger.getSurvived() == 1){
                 System.out.println(passenger);
             }
+        }
+    }
+
+    public static void ticketOwner (ArrayList<Passenger> passengerList, String ticketNumber){
+        boolean found = false;
+        System.out.println("\n\nOwner of the ticket");
+        for(Passenger passenger : passengerList){
+            if(passenger.getTicketNumber().equalsIgnoreCase(ticketNumber)){
+                System.out.println(passenger);
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("No passenger found with ticket number: "+ticketNumber);
         }
     }
 }
