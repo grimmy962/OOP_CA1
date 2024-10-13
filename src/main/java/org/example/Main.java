@@ -19,7 +19,7 @@ public class Main {
         // Assignment: Implement and test the following methods.
         // See the description of each method in the CA1 Specification PDF file from Moodle
 
-//        getPassengerNames();
+          getPassengerNames(passengerList);
 //        getPassengersContainingNames();
 //        getPassengersOlderThan();
 //        countPassengersByGender();
@@ -107,4 +107,12 @@ public class Main {
             System.out.println(passenger);
         }
     }
+    public static void getPassengerNames( ArrayList<Passenger> passengerList ) {
+        System.out.println("Displaying passengers' names:");
+        for( Passenger passenger : passengerList)
+        {
+            System.out.println(passenger.getName());
+        }
+    }
+
 }
