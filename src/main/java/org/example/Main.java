@@ -21,7 +21,7 @@ public class Main {
 
           getPassengerNames(passengerList);
           getPassengersContainingNames(passengerList, "William");
-//        getPassengersOlderThan();
+          getPassengersOlderThan(passengerList, 30);
 //        countPassengersByGender();
 //        sumFares();
 //        maleSurvivors();
@@ -101,14 +101,14 @@ public class Main {
     }
 
     public static void displayAllPassengers( ArrayList<Passenger> passengerList ) {
-        System.out.println("Displaying all passengers:");
+        System.out.println("\n\nDisplaying all passengers:");
         for( Passenger passenger : passengerList)
         {
             System.out.println(passenger);
         }
     }
     public static void getPassengerNames( ArrayList<Passenger> passengerList ) {
-        System.out.println("Displaying passengers' names:");
+        System.out.println("\n\nDisplaying passengers' names:");
         for( Passenger passenger : passengerList)
         {
             System.out.println(passenger.getName());
@@ -116,9 +116,18 @@ public class Main {
     }
 
     public static void getPassengersContainingNames(ArrayList<Passenger> passengerList, String name){
-        System.out.println("Display all passengers with name 'William:'");
+        System.out.println("\n\nDisplay all passengers with name 'William:'");
         for(Passenger passenger : passengerList){
             if(passenger.getName().toLowerCase().contains(name.toLowerCase())){
+                System.out.println(passenger);
+            }
+        }
+    }
+
+    public static void getPassengersOlderThan(ArrayList<Passenger> passengerList, int age){
+        System.out.println("\n\nDisplay all passengers older than 30:");
+        for(Passenger passenger : passengerList){
+            if(passenger.getAge() > age){
                 System.out.println(passenger);
             }
         }
