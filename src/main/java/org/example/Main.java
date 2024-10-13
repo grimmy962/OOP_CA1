@@ -20,7 +20,7 @@ public class Main {
         // See the description of each method in the CA1 Specification PDF file from Moodle
 
           getPassengerNames(passengerList);
-//        getPassengersContainingNames();
+          getPassengersContainingNames(passengerList, "William");
 //        getPassengersOlderThan();
 //        countPassengersByGender();
 //        sumFares();
@@ -115,4 +115,12 @@ public class Main {
         }
     }
 
+    public static void getPassengersContainingNames(ArrayList<Passenger> passengerList, String name){
+        System.out.println("Display all passengers with name 'William:'");
+        for(Passenger passenger : passengerList){
+            if(passenger.getName().toLowerCase().contains(name.toLowerCase())){
+                System.out.println(passenger);
+            }
+        }
+    }
 }
