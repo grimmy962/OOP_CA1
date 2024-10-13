@@ -22,7 +22,7 @@ public class Main {
           getPassengerNames(passengerList);
           getPassengersContainingNames(passengerList, "William");
           getPassengersOlderThan(passengerList, 30);
-//        countPassengersByGender();
+          countPassengersByGender(passengerList);
 //        sumFares();
 //        maleSurvivors();
 //        ticketOwner();
@@ -131,5 +131,23 @@ public class Main {
                 System.out.println(passenger);
             }
         }
+    }
+
+    public static void countPassengersByGender(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nCount all passengers by Gender:");
+
+        int fCount = 0;
+        int mCount = 0;
+        for(Passenger passenger : passengerList){
+            if(passenger.getGender().equalsIgnoreCase("female")){
+                fCount++;
+            }
+            else {
+                mCount++;
+            }
+        }
+
+        System.out.println("Number of Female Passengers on board: "+fCount);
+        System.out.println("Number of Male Passengers on board: "+mCount);
     }
 }
