@@ -27,7 +27,7 @@ public class Main {
           maleSurvivors(passengerList);
           ticketOwner(passengerList, "2680");
           averageAge(passengerList);
-//        getPassengersByTicketClass();
+          getPassengersByTicketClass(passengerList);
 //        sortPassengersByPassengerId()
 //        sortPassengersByName();
 //        sortPassengersByAgeThenName();
@@ -201,4 +201,20 @@ public class Main {
         System.out.println("\n\nAverage age: " +avgAge);
         return avgAge;
     }
+
+    public static void getPassengersByTicketClass(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nGet all 1st class Passengers: ");
+        boolean found = false;
+        PassengerClass classType = PassengerClass.FIRST;
+        for(Passenger passenger : passengerList) {
+            if(classType == passenger.getPassengerClass()){
+                System.out.println(passenger);
+                found = true;
+            }
+    }
+        if(!found){
+            System.out.println("No passenger found in "+ passengerList.getClass()+" class.");
+        }
+    }
+
 }
