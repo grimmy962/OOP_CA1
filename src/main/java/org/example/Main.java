@@ -24,7 +24,7 @@ public class Main {
           getPassengersOlderThan(passengerList, 30);
           countPassengersByGender(passengerList);
           sumFares(passengerList);
-//        maleSurvivors();
+          maleSurvivors(passengerList);
 //        ticketOwner();
 //        averageAge();
 //        getPassengersByTicketClass();
@@ -159,5 +159,14 @@ public class Main {
         }
         System.out.println(totalFare);
         return totalFare;
+    }
+
+    public static void maleSurvivors(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nList of male survivors: ");
+        for(Passenger passenger : passengerList){
+            if(passenger.getGender().equalsIgnoreCase("male") && passenger.getSurvived() == 1){
+                System.out.println(passenger);
+            }
+        }
     }
 }
