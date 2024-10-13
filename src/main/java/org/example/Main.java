@@ -26,7 +26,7 @@ public class Main {
           sumFares(passengerList);
           maleSurvivors(passengerList);
           ticketOwner(passengerList, "2680");
-//        averageAge();
+          averageAge(passengerList);
 //        getPassengersByTicketClass();
 //        sortPassengersByPassengerId()
 //        sortPassengersByName();
@@ -183,5 +183,22 @@ public class Main {
         if(!found){
             System.out.println("No passenger found with ticket number: "+ticketNumber);
         }
+    }
+
+    public static double averageAge(ArrayList<Passenger> passengerList){
+        double avgAge = 0;
+        int ageCount = 0;
+        int count = 0;
+        //System.out.println("\n\nAverage age:" +avgAge);
+        for(Passenger passenger : passengerList){
+            ageCount += passenger.getAge();
+            count++;
+        }
+        if(count > 0){
+            avgAge = (double) ageCount/count;
+        }
+
+        System.out.println("\n\nAverage age: " +avgAge);
+        return avgAge;
     }
 }
