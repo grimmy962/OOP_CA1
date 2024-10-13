@@ -23,7 +23,7 @@ public class Main {
           getPassengersContainingNames(passengerList, "William");
           getPassengersOlderThan(passengerList, 30);
           countPassengersByGender(passengerList);
-//        sumFares();
+          sumFares(passengerList);
 //        maleSurvivors();
 //        ticketOwner();
 //        averageAge();
@@ -149,5 +149,15 @@ public class Main {
 
         System.out.println("Number of Female Passengers on board: "+fCount);
         System.out.println("Number of Male Passengers on board: "+mCount);
+    }
+
+    public static double sumFares(ArrayList<Passenger> passengerList){
+        double totalFare = 0.0;
+        System.out.println("\n\nSum of all fares: ");
+        for(Passenger passenger : passengerList){
+            totalFare += passenger.getFare();
+        }
+        System.out.println(totalFare);
+        return totalFare;
     }
 }
