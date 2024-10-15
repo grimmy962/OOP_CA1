@@ -1,8 +1,7 @@
 package org.example;
 // CA1
 import java.io. * ;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +9,7 @@ public class Main {
         String fileName = "titanic-data-100.csv"; // file should be in the project folder (below pom.xml)
 
         ArrayList<Passenger> passengerList= new ArrayList<>();
+        ArrayList<Passenger> sortedPassengers = new ArrayList<>();
 
         loadPassengerDataFromFile( passengerList, fileName);
 
@@ -28,7 +28,7 @@ public class Main {
           ticketOwner(passengerList, "2680");
           averageAge(passengerList);
           getPassengersByTicketClass(passengerList);
-//        sortPassengersByPassengerId()
+          sortPassengersByPassengerId(passengerList);
 //        sortPassengersByName();
 //        sortPassengersByAgeThenName();
 //        sortPassengersByGenderThenPassengerNumber()
@@ -217,4 +217,16 @@ public class Main {
         }
     }
 
+    public static void sortPassengersByPassengerId(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nSort passengers by passengers id:");
+        Collections.sort(passengerList, new Comparator<Passenger>(){
+            @Override
+            public int compare (Passenger p1, Passenger p2){
+                return p1.getPassengerId().compareTo(p2.getPassengerId());
+            }
+        });
+        for (Passenger passenger : passengerList){
+            System.out.println(passenger);
+        }
+    }
 }
