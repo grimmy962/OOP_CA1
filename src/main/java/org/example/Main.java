@@ -29,7 +29,7 @@ public class Main {
           averageAge(passengerList);
           getPassengersByTicketClass(passengerList);
           sortPassengersByPassengerId(passengerList);
-//        sortPassengersByName();
+          sortPassengersByName(passengerList);
 //        sortPassengersByAgeThenName();
 //        sortPassengersByGenderThenPassengerNumber()
 //        sortPassengersByFareThenSurvival();
@@ -226,6 +226,20 @@ public class Main {
             }
         });
         for (Passenger passenger : passengerList){
+            System.out.println(passenger);
+        }
+    }
+
+    public static void sortPassengersByName(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nSort passengers by name: ");
+        Collections.sort(passengerList, new Comparator<Passenger>(){
+
+            @Override
+            public int compare(Passenger o1, Passenger o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+        for(Passenger passenger : passengerList){
             System.out.println(passenger);
         }
     }
