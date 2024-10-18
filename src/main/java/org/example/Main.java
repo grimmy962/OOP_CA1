@@ -32,7 +32,7 @@ public class Main {
           sortPassengersByName(passengerList);
           sortPassengersByAgeThenName(passengerList);
           sortPassengersByGenderThenPassengerNumber(passengerList);
-//        sortPassengersByFareThenSurvival();
+          sortPassengersByFareThenSurvival(passengerList);
 //        sortPassengersByTicketClass();
 //        sortPassengersByAge();
 //        sortPassengersByTicketNumberLambda();
@@ -276,6 +276,24 @@ public class Main {
             }
         });
         for (Passenger passenger: passengerList){
+            System.out.println(passenger);
+        }
+    }
+    public static void sortPassengersByFareThenSurvival(ArrayList<Passenger> passengerList){
+        System.out.println("\n\n Sort passengers by fare then by survival: ");
+
+        Collections.sort(passengerList, new Comparator<Passenger>() {
+         @Override
+         public int compare (Passenger p1, Passenger p2){
+             int fareComparison = Double.compare(p1.getFare(), p2.getFare());
+
+             if(fareComparison == 0){
+                 return Integer.compare(p1.getSurvived(), p2.getSurvived());
+             }
+             return fareComparison;
+            }
+        });
+        for(Passenger passenger : passengerList){
             System.out.println(passenger);
         }
     }
