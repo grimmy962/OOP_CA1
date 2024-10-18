@@ -31,9 +31,9 @@ public class Main {
           sortPassengersByPassengerId(passengerList);
           sortPassengersByName(passengerList);
           sortPassengersByAgeThenName(passengerList);
-//        sortPassengersByGenderThenPassengerNumber()
+          sortPassengersByGenderThenPassengerNumber(passengerList);
 //        sortPassengersByFareThenSurvival();
-//        sortPassengersByTicketClass()
+//        sortPassengersByTicketClass();
 //        sortPassengersByAge();
 //        sortPassengersByTicketNumberLambda();
 //        sortPassengersByTicketNumberStatic();
@@ -260,6 +260,23 @@ public class Main {
         for(Passenger passenger : passengerList){
             System.out.println(passenger);
         }
+    }
+    public static void sortPassengersByGenderThenPassengerNumber(ArrayList<Passenger> passengerList){
+        System.out.println("\n\n Sort passengers by gender then by passenger number");
 
-}
+        Collections.sort(passengerList, new Comparator<Passenger>() {
+            @Override
+            public int compare(Passenger p1, Passenger p2) {
+                int genderComparison = p1.getGender().compareTo(p2.getGender());
+
+                if(genderComparison ==0){
+                    return p1.getPassengerId().compareTo(p2.getPassengerId());
+                }
+                return genderComparison;
+            }
+        });
+        for (Passenger passenger: passengerList){
+            System.out.println(passenger);
+        }
+    }
 }
