@@ -35,7 +35,7 @@ public class Main {
           sortPassengersByFareThenSurvival(passengerList);
           sortPassengersByTicketClass(passengerList);
           sortPassengersByAge(passengerList);
-//        sortPassengersByTicketNumberLambda();
+          sortPassengersByTicketNumberLambda(passengerList);
 //        sortPassengersByTicketNumberStatic();
 //        findPassengerByTicketNumber();
 //        findPassengerByPassengerId();
@@ -322,5 +322,12 @@ public class Main {
             System.out.println(passenger);
         }
     }
+    public static void sortPassengersByTicketNumberLambda(ArrayList<Passenger> passengerList){
+        System.out.println("\n\nSort passengers by ticket number (using Lambda): ");
+        Collections.sort(passengerList, (p1, p2) -> p1.getTicketNumber().compareTo(p2.getTicketNumber()));
 
+    for(Passenger passenger : passengerList) {
+        System.out.println(passenger);
+    }
+    }
 }
