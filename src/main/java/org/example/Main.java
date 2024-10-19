@@ -366,8 +366,10 @@ public class Main {
 
 
         if (index >= 0) {
+                System.out.println("Passenger found!\n" + passengerList.toString());
                 return passengerList.get(index);
             } else {
+                System.out.println("Passenger not found");
                 return null;
             }
     }
