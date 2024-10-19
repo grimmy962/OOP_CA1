@@ -42,6 +42,7 @@ public class Passenger {
 
     public Passenger (String ticketNumber) {this.ticketNumber = ticketNumber;}
 
+
     @Override
     public String toString() {
         return "Passenger{" +

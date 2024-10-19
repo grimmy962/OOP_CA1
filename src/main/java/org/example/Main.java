@@ -38,7 +38,7 @@ public class Main {
           sortPassengersByTicketNumberLambda(passengerList);
           sortPassengersByTicketNumberStatic(passengerList);
           findPassengerByTicketNumber(passengerList, "PC 17599");
-         // findPassengerByPassengerId(passengerList, "12");
+          findPassengerByPassengerId(passengerList, "12");
 
         System.out.println("Finished, Goodbye!");
     }
@@ -345,7 +345,7 @@ public class Main {
     }
 
     public static Passenger findPassengerByTicketNumber(ArrayList<Passenger> passengerList, String ticketNumber) {
-        System.out.println("\n\nFind passeger by ticket number(binarySearch): ");
+        System.out.println("\n\nFind passenger by ticket number(binarySearch): ");
         Collections.sort(passengerList, new Comparator<Passenger>() {
             @Override
             public int compare(Passenger o1, Passenger o2) {
@@ -369,20 +369,38 @@ public class Main {
                 System.out.println("Passenger found!\n" + passengerList.toString());
                 return passengerList.get(index);
             } else {
-                System.out.println("Passenger not found");
+                System.out.println("Passenger not found...");
                 return null;
             }
     }
 
-/*
+
     public static Passenger findPassengerByPassengerId(ArrayList<Passenger> passengerList, String passengerId) {
-        for (Passenger passenger : passengerList) {
-            if (passenger.getPassengerId().equals(passengerId)) {
-                return passenger;
+        System.out.println("\n\nFind passenger by passenger ID(binary): ");
+        Collections.sort(passengerList, new Comparator<Passenger>() {
+            @Override
+            public int compare(Passenger o1, Passenger o2) {
+                return o1.getPassengerId().compareTo(o2.getPassengerId());
             }
+        });
+
+        Passenger nullPassenger = new Passenger();
+        nullPassenger.setPassengerId(passengerId);
+
+        int index = Collections.binarySearch(passengerList, nullPassenger, new Comparator<Passenger>(){
+            @Override
+            public int compare(Passenger o1, Passenger o2) {
+                return o1.getPassengerId().compareTo(o2.getPassengerId());
+            }
+        });
+
+        if (index >= 0) {
+            System.out.println("Passenger found!\n" + passengerList.toString());
+            return passengerList.get(index);
+        } else {
+            System.out.println("Passenger not found...");
+            return null;
         }
-        return null;
     }
 
- */
 }
