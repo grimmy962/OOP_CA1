@@ -40,6 +40,7 @@ public class Passenger {
         this.embarkedAt = embarkedAt;
     }
 
+    public Passenger (String ticketNumber) {this.ticketNumber = ticketNumber;}
 
     @Override
     public String toString() {
@@ -62,6 +63,7 @@ public class Passenger {
     public String getPassengerId() {
         return passengerId;
     }
+    public Passenger() {};
 
     public void setPassengerId(String passengerId) {
         this.passengerId = passengerId;
@@ -154,4 +156,5 @@ public class Passenger {
     public void setEmbarkedAt(String embarkedAt) {
         this.embarkedAt = embarkedAt;
     }
+
 }

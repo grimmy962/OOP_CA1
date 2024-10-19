@@ -37,8 +37,8 @@ public class Main {
           sortPassengersByAge(passengerList);
           sortPassengersByTicketNumberLambda(passengerList);
           sortPassengersByTicketNumberStatic(passengerList);
-//        findPassengerByTicketNumber();
-//        findPassengerByPassengerId();
+          findPassengerByTicketNumber(passengerList, "PC 17599");
+         // findPassengerByPassengerId(passengerList, "12");
 
         System.out.println("Finished, Goodbye!");
     }
@@ -343,4 +343,44 @@ public class Main {
             System.out.println(passenger);
         }
     }
+
+    public static Passenger findPassengerByTicketNumber(ArrayList<Passenger> passengerList, String ticketNumber) {
+        System.out.println("\n\nFind passeger by ticket number(binarySearch): ");
+        Collections.sort(passengerList, new Comparator<Passenger>() {
+            @Override
+            public int compare(Passenger o1, Passenger o2) {
+                return o1.getTicketNumber().compareTo(o2.getTicketNumber());
+            }
+        });
+
+        Passenger nullPassenger = new Passenger();
+        nullPassenger.setTicketNumber(ticketNumber);
+
+        int index;
+        index = Collections.binarySearch(passengerList, nullPassenger, new Comparator<Passenger>() {
+            @Override
+            public int compare(Passenger o1, Passenger o2) {
+                return o1.getTicketNumber().compareTo(o2.getTicketNumber());
+            }
+        });
+
+
+        if (index >= 0) {
+                return passengerList.get(index);
+            } else {
+                return null;
+            }
+    }
+
+/*
+    public static Passenger findPassengerByPassengerId(ArrayList<Passenger> passengerList, String passengerId) {
+        for (Passenger passenger : passengerList) {
+            if (passenger.getPassengerId().equals(passengerId)) {
+                return passenger;
+            }
+        }
+        return null;
+    }
+
+ */
 }
